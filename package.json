@@ -1,0 +1,19 @@
+{
+  "name": "forecastchallenge",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wainola/forecast.git"
+  },
+  "author": "Nicolás Riquelme",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wainola/forecast/issues"
+  },
+  "homepage": "https://github.com/wainola/forecast#readme"
+}
