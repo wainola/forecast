@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/wainola/forecast/issues"
   },
-  "homepage": "https://github.com/wainola/forecast#readme"
+  "homepage": "https://github.com/wainola/forecast#readme",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "socket.io": "^2.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
 }
