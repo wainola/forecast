@@ -22,7 +22,9 @@ Cada request de la API debera ir a Redis, sacar las latitudes y longitudes corre
 
 Cada request a la API tiene un 10% de chances de fallar, al momento de hacer el request debera suceder lo siguiente:
 
+```js
 if (Math.rand(0, 1) < 0.1) throw new Error('How unfortunate! The API Request Failed')
+```
 
 Esto nos simulara un fallo del 10%~, la aplicacion debera rehacer el request las veces que sea necesario para tener una respuesta correcta, cada fallo debera guardarse en Redis dentro de un hash llamado "api.errors", la llave debera ser el timestamp y el contenido debe ser relevante al error. El handler de error debera capturar solamente este error y no otro con diferente clase o mensaje.
 
