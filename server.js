@@ -4,6 +4,7 @@ const axios = require('axios');
 const dotenv = require('dotenv').config();
 const cors = require('cors');
 const socketIO = require('socket.io')
+const darkSkyHandler = require('./handlers/darkSkyHandler')
 
 const { PORT: port, DEVELOPMENT_KEY: DEV_KEY } = process.env;
 
@@ -14,7 +15,10 @@ const server = http.createServer(app);
 const IO = socketIO(server);
 
 IO.on('connection', socket => {
-  setInterval(
-    
-  )
-})
+  console.log('Client conetected', setInterval(
+    () => darkSkyHandler(socket, DEV_KEY), 30000
+  ))
+  socket.on('disconnect', () => console.log('Client disconected!'))
+});
+
+server.listen(port, () => console.log(`Listening on port ${port}`));
