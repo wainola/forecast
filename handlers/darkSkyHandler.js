@@ -19,6 +19,7 @@ const darkSkyHandler = async (socket, DEV_KEY) => {
     const sydney = await axios.get(`https://api.darksky.net/forecast/${DEV_KEY}/-33.865143,151.209900?units=si`);
     const london = await axios.get(`https://api.darksky.net/forecast/${DEV_KEY}/51.509865,-0.118092?units=si`);
     const georgia = await axios.get(`https://api.darksky.net/forecast/${DEV_KEY}/33.247875,-83.441162?units=si`);
+    console.log('data', santiago.data)
     socket.emit('FROM_API', [santiago.data, zurich.data, auckland.data, sydney.data, london.data, georgia.data])
   } catch (err) {
     console.error(`Error: ${err}`)
