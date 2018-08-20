@@ -2,7 +2,9 @@ const axios = require('axios');
 const moment = require('moment');
 const redis = require('redis');
 
-const client = redis.createClient()
+const { REDIS_URL } = process.env
+
+const client = redis.createClient(REDIS_URL)
 
 const darkSkyHandler = async (socket, DEV_KEY) => {
   try {
@@ -17,10 +19,10 @@ const darkSkyHandler = async (socket, DEV_KEY) => {
     const sydney = await axios.get(`https://api.darksky.net/forecast/${DEV_KEY}/-33.865143,151.209900?units=si`);
     const london = await axios.get(`https://api.darksky.net/forecast/${DEV_KEY}/51.509865,-0.118092?units=si`);
     const georgia = await axios.get(`https://api.darksky.net/forecast/${DEV_KEY}/33.247875,-83.441162?units=si`);
-    console.log('res data', santiago.data)
     socket.emit('FROM_API', [santiago.data, zurich.data, auckland.data, sydney.data, london.data, georgia.data])
   } catch (err) {
     console.error(`Error: ${err}`)
+    socket.emit('FROM_API', { 'msg': 'ops! and error ocurred'})
   }
 }
 
