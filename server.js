@@ -16,7 +16,7 @@ const IO = socketIO(server);
 
 IO.on('connection', socket => {
   console.log('Client conetected', setInterval(
-    () => darkSkyHandler(socket, DEV_KEY), 30000
+    () => darkSkyHandler(socket, DEV_KEY), 10000
   ))
   socket.on('disconnect', () => console.log('Client disconected!'))
 });
